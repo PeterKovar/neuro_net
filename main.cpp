@@ -16,8 +16,8 @@ int main() {
 
     double target[4][1] = {
             {0.0},
-            {0.0},
-            {0.0},
+            {1.0},
+            {1.0},
             {1.0}
     };
     double learning_rate = 0.5;
@@ -26,7 +26,7 @@ int main() {
     for(int epoch=0; epoch < epochs; ++epoch) {
         double total_error = 0.0;
         for (int i = 0; i < 4; ++i) {
-
+            // Aufruf Training
             net.train(input[i], target[i], learning_rate);
 
             //Fehler berechnen (MSE)
@@ -40,5 +40,14 @@ int main() {
         "Fehler: " << total_error / 4 << "\n";
         }
     }
+
+    // Netz testen
+    std::cout << "Trainierte Netz\n";
+    for (int i=0; i< 4; i++){
+
+        std::cout << "Eingang: " << input[i][0] << "," << input[i][1]
+        << "-->" << net.forward(input[i]) << "\n";
+    }
+//net.layers[2].neurons[0].output
     return 0;
 }
