@@ -12,6 +12,8 @@ public:
     ~NeuronNet();
     double forward(double *);
     double sigmoid(double x);
+    double sigmoid_derivative(double x);
+    void train(double *input, double *target, double learning_rate);
 };
 
 
