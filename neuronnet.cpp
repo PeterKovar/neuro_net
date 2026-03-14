@@ -32,7 +32,7 @@ double NeuronNet::forward(double *input) {
         layers[0].neurons[i].output = input[i];
     }
 
-    for (int i=0; i<numberLayers; ++i){
+    for (int i=1; i<numberLayers; ++i){
         for(int j=0; j<layers[i].numberNeurons; ++j){
             double sum = 0.0;
             for(int k=0; k< layers[i].numberInputs; ++k){
@@ -63,7 +63,7 @@ void NeuronNet::train(double *input, double *target, double learning_rate){
                 error += layers[i+1].neurons[k].delta * layers[i+1].neurons[k].weight;
             }
             layers[i].neurons[j].delta = error
-                    + sigmoid_derivative(layers[i].neurons[j].output);
+                    * sigmoid_derivative(layers[i].neurons[j].output);
         }
     }
     //Gewichte und Bias anpassen

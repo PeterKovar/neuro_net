@@ -16,8 +16,8 @@ int main() {
 
     double target[4][1] = {
             {0.0},
-            {1.0},
-            {1.0},
+            {0.0},
+            {0.0},
             {1.0}
     };
     double learning_rate = 0.5;
