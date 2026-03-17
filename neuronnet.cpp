@@ -9,7 +9,7 @@ NeuronNet::NeuronNet(int *layer_struct, int maxLayer) {
     numberLayers = maxLayer;
     layers = new Layer[numberLayers];  // Layer erzeugen
     // Neuronen erzeugen
-    for (int i=0; i< maxLayer; ++i){
+    for (int i=0; i< maxLayer; ++i){   // TODO: maxLayer oder numberLayers?
         layers[i].numberNeurons = layer_struct[i];
         layers[i].makeNeurons();
         if(i == 0) layers[i].numberInputs = 0;

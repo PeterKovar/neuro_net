@@ -4,7 +4,7 @@
 
 int main() {
     // Neuronales Netz erzeugen
-    int layer_struct[] = {2, 3,1};
+    int layer_struct[] = {2, 20, 200, 20,1};
     NeuronNet net(layer_struct,
                   sizeof(layer_struct)/sizeof(int));
     // Trainingsdaten UND Funktion
@@ -16,9 +16,9 @@ int main() {
 
     double target[4][1] = {
             {0.0},
+            {1.0},
             {0.0},
-            {0.0},
-            {1.0}
+            {0.0}
     };
     double learning_rate = 0.5;
     int epochs = 5000;          // Trainingsdurchläufe
